@@ -1,0 +1,50 @@
+﻿@model DeckOfCards.Models.DeckApi
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.success)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.deck_id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.remaining)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.shuffled)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+
+
+        <tr>
+            <td>
+                @*@Html.DisplayFor(model => model.success)*@
+                @Model.success.ToString()
+            </td>
+            <td>
+                @Html.DisplayFor(model => model.deck_id)
+            </td>
+            <td>
+                @Html.DisplayFor(model => model.remaining)
+            </td>
+            <td>
+                @*@Html.DisplayFor(model => model.shuffled)*@
+                @Model.shuffled.ToString()
+            </td>
+
+        </tr>
+    </tbody>
+</table>
+<br />
+<button type="button" class="btn btn-primary" onclick="location.href='@Url.Action("Draw", "DeckOfCards",new { id = Model.deck_id } )'">Draw Five Cards</button>
